@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Walking the dog",
+      "priorityLevel": "medium",
+      "status": "todo"
+    },
+    {
+      "id": "2",
+      "title": "Coding in the evening",
+      "priorityLevel": "high",
+      "status": "ongoing"
+    },
+    {
+      "id": "3",
+      "title": "Reading a book",
+      "priorityLevel": "low",
+      "status": "done"
+    }
+  ]
+}
