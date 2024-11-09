@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", serif;
+}
+
+/* GLOBAL CONTAINER */
+.container {
+  @apply px-5 w-full max-w-[1180px] mx-auto
+}
+
+/* ACTIVE LINK */
+.router-link-active {
+  @apply bg-[#ffffff15] rounded-lg
+}
+
+/* CONTENT */
+.content {
+  height: calc(100vh - 300px);
+}
