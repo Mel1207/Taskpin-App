@@ -1,6 +1,6 @@
 <template>
   <!-- <Modal /> -->
-  <ModalConfirm />
+  <!-- <ModalConfirm /> -->
   <div class="pl-[280px] pt-[70px]">
     <div class="container">
       <div class="flex justify-between items-center mt-[40px] mb-[30px]">
@@ -23,18 +23,38 @@
       </div>
       <div class="grid grid-cols-3 gap-5 content">
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
-          <div class="border rounded-lg p-[15px] flex justify-between items-start">
+          <div v-for="item in todoTasks" :key="Number(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
             <div>
-              <p class="text-sm font-semibold mb-[5px]">Walking the dog</p>
-              <span class="block text-[#FF6581] text-xs py-[5px] px-2 rounded-full bg-[#FF658115] w-max">High priority</span>
+              <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
+              <span class="block text-[#FF6581] text-xs py-[5px] px-2 rounded-full bg-[#FF658115] w-max">{{ item.priorityLevel }} priority</span>
             </div>
             <button>
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
         </div>
-        <div class="border rounded-[15px] p-3">2</div>
-        <div class="border rounded-[15px] p-3">3</div>
+        <div class="border rounded-[15px] p-3">
+          <div v-for="item in onGoingTasks" :key="Number(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+            <div>
+              <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
+              <span class="block text-[#FF6581] text-xs py-[5px] px-2 rounded-full bg-[#FF658115] w-max">{{ item.priorityLevel }} priority</span>
+            </div>
+            <button>
+              <img src="../assets/icon-delete.svg" alt="icon delete">
+            </button>
+          </div>
+        </div>
+        <div class="border rounded-[15px] p-3">
+          <div v-for="item in doneTasks" :key="Number(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+            <div>
+              <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
+              <span class="block text-[#FF6581] text-xs py-[5px] px-2 rounded-full bg-[#FF658115] w-max">{{ item.priorityLevel }} priority</span>
+            </div>
+            <button>
+              <img src="../assets/icon-delete.svg" alt="icon delete">
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -42,12 +62,44 @@
 
 <script setup lang="ts">
 import ButtonSet from '../components/buttons/ButtonSet.vue'
-import Modal from '../components/modal/Modal.vue';
-import ModalConfirm from '../components/modal/ModalConfirm.vue';
+// import Modal from '../components/modal/Modal.vue'
+// import ModalConfirm from '../components/modal/ModalConfirm.vue'
+import { computed, onMounted, ref } from 'vue'
+import Task from '../types/Task'
 
+const tasks = ref<Task[]>([])
+
+const getTasks = async () => {
+  await fetch('http://localhost:3000/tasks')
+    .then(res => res.json())
+    .then(data => tasks.value = data)
+}
+
+const todoTasks = computed(() => tasks.value.filter(item => item.status === 'todo'))
+
+const onGoingTasks = computed(() => tasks.value.filter(item => item.status === 'ongoing'))
+
+const doneTasks = computed(() => tasks.value.filter(item => item.status === 'done'))
+
+const deleteTask = async (id: String) => {
+  try {
+    const response = await fetch(`http://localhost:3000/tasks/${id}`, {
+      method: 'DELETE',
+    })
+    if (!response.ok) {
+      throw new Error('Failed to delete task')
+    }
+    // Update the tasks array by removing the deleted task
+    tasks.value = tasks.value.filter(task => task.id !== id)
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+onMounted(() => {
+  getTasks()
+  console.log(onGoingTasks)
+  // console.log('component is running')
+})
 
 </script>
-
-<style scoped>
-
-</style>

@@ -17,11 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import ButtonSet from '../buttons/ButtonSet.vue';
+import ButtonSet from '../buttons/ButtonSet.vue'
 
 
 </script>
-
-<style scoped>
-
-</style>
