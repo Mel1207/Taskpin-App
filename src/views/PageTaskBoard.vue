@@ -11,14 +11,17 @@
         <ButtonSet btn-title="New task" has-icon class-list="h-[40px] px-[15px] bg-primary text-white flex gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="$store.commit('openModal')"/>
       </div>
       <div class="grid grid-cols-3 gap-5 mb-5">
-        <div class="rounded-lg bg-green-100 px-5 flex items-center h-[50px]">
+        <div class="rounded-lg bg-cGreen bg-opacity-15 px-5 flex items-center justify-between h-[50px]">
           <p class="text-sm font-semibold">Todo</p>
+          <div class="h-[30px] w-[30px] bg-white bg-opacity-60 flex items-center justify-center text-[14px] font-semibold rounded-full">{{ todoTasks.length }}</div>
         </div>
-        <div class="rounded-lg bg-blue-100 px-5 flex items-center h-[50px]">
+        <div class="rounded-lg bg-cBlue bg-opacity-15 px-5 flex items-center justify-between h-[50px]">
           <p class="text-sm font-semibold">On-going</p>
+          <div class="h-[30px] w-[30px] bg-white bg-opacity-60 flex items-center justify-center text-[14px] font-semibold rounded-full">{{ onGoingTasks.length }}</div>
         </div>
-        <div class="rounded-lg bg-gray-100 px-5 flex items-center h-[50px]">
+        <div class="rounded-lg bg-cBlack bg-opacity-5 px-5 flex items-center justify-between h-[50px]">
           <p class="text-sm font-semibold">Done</p>
+          <div class="h-[30px] w-[30px] bg-white bg-opacity-60 flex items-center justify-center text-[14px] font-semibold rounded-full">{{ doneTasks.length }}</div>
         </div>
       </div>
       <div class="grid grid-cols-3 gap-5 content">
@@ -101,6 +104,7 @@ const deleteTask = async (id: String) => {
 }
 
 const handleEditTask = (task: object) => {
+  console.log(todoTasks.value.length)
   store.commit('openModal')
   store.state.newTask = task
 }
