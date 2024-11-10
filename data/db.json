@@ -13,18 +13,6 @@
       "status": "done"
     },
     {
-      "id": "ceba",
-      "title": "fix priority levels ",
-      "priorityLevel": "medium",
-      "status": "done"
-    },
-    {
-      "id": "6545",
-      "title": "test 2",
-      "priorityLevel": "high",
-      "status": "todo"
-    },
-    {
       "id": "fb82",
       "title": "fix a asdf",
       "priorityLevel": "medium",
