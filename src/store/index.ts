@@ -4,13 +4,13 @@ import Task from "../types/Task"
 export default createStore({
   state: {
     tasks: <Task[]>[],
-
-    showModal: false,
     newTask: {
       title: '',
       priorityLevel: 'low',
       status: 'todo'
-    }
+    },
+    showModal: false,
+    isTyping: false
   },
   mutations: {
     openModal(state: { showModal: boolean }) {
