@@ -1,5 +1,9 @@
 interface Task {
-  title: String
+  id: String,
+  title: String,
+  status: String,
+  isFinished: Boolean,
+  priorityLevel: String
 }
 
 export default Task

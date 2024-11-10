@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-body {
+body, input {
   font-family: "Inter", serif;
 }
 
@@ -23,4 +23,17 @@ body {
 /* CONTENT */
 .content {
   height: calc(100vh - 300px);
+}
+
+/* PRIORITY CLASS */
+.low {
+  @apply text-[#17CF97] bg-[#17CF9715]
+}
+
+.medium {
+  @apply text-[#171ECF] bg-[#171ECF15]
+}
+
+.high {
+  @apply text-[#FF4B61] bg-[#FF4B6115]
 }
