@@ -3,7 +3,7 @@
     <div class="bg-white w-[600px] rounded-[20px] p-5">
       <div class="flex items-start justify-between mb-[45px]">
         <p class="text-lg font-bold">New task</p>
-        <img src="../../assets/icon-close.svg" alt="icon close">
+        <img src="../../assets/icon-close.svg" alt="icon close" class="cursor-pointer" @click="$store.commit('closeModal')">
       </div>
       <div class="mb-[15px]">
         <span class="text-sm font-semibold block mb-2">Title</span>
@@ -36,6 +36,5 @@
 
 <script setup lang="ts">
 import ButtonSet from '../buttons/ButtonSet.vue'
-
 
 </script>
