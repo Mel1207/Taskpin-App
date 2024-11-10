@@ -23,38 +23,38 @@
       </div>
       <div class="grid grid-cols-3 gap-5 content">
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
-          <div v-for="item in todoTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+          <div v-for="item in todoTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click.exact="handleEditTask(item)">
             <div>
               <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">{{ item.priorityLevel }} priority</span>
             </div>
-            <button>
+            <button @click.stop="deleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
         </div>
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
-          <div v-for="item in onGoingTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+          <div v-for="item in onGoingTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click.exact="handleEditTask(item)">
             <div>
               <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button>
+            <button @click.stop="deleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
         </div>
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
-          <div v-for="item in doneTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+          <div v-for="item in doneTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click.exact="handleEditTask(item)">
             <div>
               <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel" >
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button>
+            <button @click.stop="deleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -98,6 +98,11 @@ const deleteTask = async (id: String) => {
   } catch (err) {
     console.error(err)
   }
+}
+
+const handleEditTask = (task: object) => {
+  store.commit('openModal')
+  store.state.newTask = task
 }
 
 onMounted(() => {

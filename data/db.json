@@ -1,20 +1,8 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "title": "Walking the dog",
-      "priorityLevel": "medium",
-      "status": "todo"
-    },
-    {
-      "id": "4",
-      "title": "fix a code",
-      "priorityLevel": "medium",
-      "status": "todo"
-    },
-    {
       "id": "e9e2",
-      "title": "submit test",
+      "title": "submit test 1",
       "status": "ongoing",
       "priorityLevel": "low"
     },
@@ -23,18 +11,6 @@
       "title": "task from vuex",
       "priorityLevel": "low",
       "status": "done"
-    },
-    {
-      "id": "a908",
-      "title": "Update task",
-      "priorityLevel": "low",
-      "status": "ongoing"
-    },
-    {
-      "id": "c8b5",
-      "title": "fix ticket #0192",
-      "priorityLevel": "high",
-      "status": "ongoing"
     },
     {
       "id": "ceba",
@@ -49,10 +25,16 @@
       "status": "todo"
     },
     {
-      "id": "069f",
-      "title": "test",
-      "priorityLevel": "low",
+      "id": "fb82",
+      "title": "fix a asdf",
+      "priorityLevel": "medium",
       "status": "todo"
+    },
+    {
+      "id": "16c9",
+      "title": "fix ticket #1203",
+      "priorityLevel": "high",
+      "status": "done"
     }
   ]
 }

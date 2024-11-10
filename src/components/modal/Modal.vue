@@ -31,7 +31,11 @@
 
       <div class="flex justify-between items-center pt-[45px]">
         <ButtonSet btn-title="Cancel" class-list="h-[40px] px-[15px] border rounded-lg text-sm"/>
-        <ButtonSet btn-title="Submit" class-list="h-[40px] px-[15px] rounded-lg bg-primary text-white hover:opacity-80 transition" @click="handleSubmit"/>
+        <div>
+          <ButtonSet btn-title="save" class-list="h-[40px] px-[15px] border rounded-lg text-sm mr-5" @click="handleSave"/>
+          <ButtonSet btn-title="Submit" class-list="h-[40px] px-[15px] rounded-lg bg-primary text-white hover:opacity-80 transition" @click="handleSubmit"/>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -40,6 +44,23 @@
 <script setup lang="ts">
 import store from '../../store'
 import ButtonSet from '../buttons/ButtonSet.vue'
+
+const editTask = async (task: {id: any; title: string, status: string, priorityLevel: string}) => {
+  try {
+    const response = await fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+    if(!response.ok) {
+      throw new Error('Failed to edit task')
+    }
+  } catch {
+    console.log('error')
+  }
+}
 
 const postTask = async (task: { title: string, status: string, priorityLevel: string}) => {
   const response = await fetch('http://localhost:3000/tasks', {
@@ -57,6 +78,11 @@ const handleSubmit = () => {
   postTask(store.state.newTask)
   store.commit('closeModal')
   store.state.newTask.title = ''
+}
+
+const handleSave = () => {
+  editTask(store.state.newTask)
+  store.commit('closeModal')
 }
 
 </script>
