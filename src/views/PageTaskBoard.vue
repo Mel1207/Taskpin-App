@@ -26,7 +26,7 @@
           <div v-for="item in todoTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
             <div>
               <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
-              <span class="block text-[#FF6581] text-xs py-[5px] px-2 rounded-full bg-[#FF658115] w-max">{{ item.priorityLevel }} priority</span>
+              <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">{{ item.priorityLevel }} priority</span>
             </div>
             <button>
               <img src="../assets/icon-delete.svg" alt="icon delete">
@@ -37,7 +37,9 @@
           <div v-for="item in onGoingTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
             <div>
               <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
-              <span class="block text-[#FF6581] text-xs py-[5px] px-2 rounded-full bg-[#FF658115] w-max">{{ item.priorityLevel }} priority</span>
+              <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">
+                {{ item.priorityLevel }} priority
+              </span>
             </div>
             <button>
               <img src="../assets/icon-delete.svg" alt="icon delete">
@@ -48,7 +50,9 @@
           <div v-for="item in doneTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
             <div>
               <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
-              <span class="block text-[#FF6581] text-xs py-[5px] px-2 rounded-full bg-[#FF658115] w-max">{{ item.priorityLevel }} priority</span>
+              <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel" >
+                {{ item.priorityLevel }} priority
+              </span>
             </div>
             <button>
               <img src="../assets/icon-delete.svg" alt="icon delete">

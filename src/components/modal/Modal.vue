@@ -56,6 +56,7 @@ const postTask = async (task: { title: string, status: string, priorityLevel: st
 const handleSubmit = () => {
   postTask(store.state.newTask)
   store.commit('closeModal')
+  store.state.newTask.title = ''
 }
 
 </script>

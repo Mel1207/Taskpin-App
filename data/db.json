@@ -7,28 +7,10 @@
       "status": "todo"
     },
     {
-      "id": "2",
-      "title": "Coding in the evening",
-      "priorityLevel": "high",
-      "status": "ongoing"
-    },
-    {
-      "id": "3",
-      "title": "Reading a book",
-      "priorityLevel": "low",
-      "status": "done"
-    },
-    {
       "id": "4",
       "title": "fix a code",
       "priorityLevel": "medium",
       "status": "todo"
-    },
-    {
-      "id": "81d4",
-      "title": "submit test",
-      "status": "todo",
-      "priorityLevel": "low"
     },
     {
       "id": "e9e2",
@@ -37,25 +19,7 @@
       "priorityLevel": "low"
     },
     {
-      "id": "273a",
-      "title": "task from vuex",
-      "priorityLevel": "low",
-      "status": "done"
-    },
-    {
       "id": "39ef",
-      "title": "task from vuex",
-      "priorityLevel": "low",
-      "status": "done"
-    },
-    {
-      "id": "9ec2",
-      "title": "task from vuex",
-      "priorityLevel": "low",
-      "status": "done"
-    },
-    {
-      "id": "ad92",
       "title": "task from vuex",
       "priorityLevel": "low",
       "status": "done"
@@ -67,9 +31,27 @@
       "status": "ongoing"
     },
     {
-      "id": "372e",
-      "title": "Code in the evening",
+      "id": "c8b5",
+      "title": "fix ticket #0192",
+      "priorityLevel": "high",
+      "status": "ongoing"
+    },
+    {
+      "id": "ceba",
+      "title": "fix priority levels ",
       "priorityLevel": "medium",
+      "status": "done"
+    },
+    {
+      "id": "6545",
+      "title": "test 2",
+      "priorityLevel": "high",
+      "status": "todo"
+    },
+    {
+      "id": "069f",
+      "title": "test",
+      "priorityLevel": "low",
       "status": "todo"
     }
   ]
