@@ -31,28 +31,46 @@
       "priorityLevel": "low"
     },
     {
-      "id": "c96b",
-      "title": "submit test",
-      "status": "todo",
-      "priorityLevel": "low"
-    },
-    {
-      "id": "ad5b",
-      "title": "submit test",
-      "status": "done",
-      "priorityLevel": "low"
-    },
-    {
       "id": "e9e2",
       "title": "submit test",
       "status": "ongoing",
       "priorityLevel": "low"
     },
     {
-      "id": "cf0c",
-      "title": "submit test",
-      "status": "ongoing",
-      "priorityLevel": "low"
+      "id": "273a",
+      "title": "task from vuex",
+      "priorityLevel": "low",
+      "status": "done"
+    },
+    {
+      "id": "39ef",
+      "title": "task from vuex",
+      "priorityLevel": "low",
+      "status": "done"
+    },
+    {
+      "id": "9ec2",
+      "title": "task from vuex",
+      "priorityLevel": "low",
+      "status": "done"
+    },
+    {
+      "id": "ad92",
+      "title": "task from vuex",
+      "priorityLevel": "low",
+      "status": "done"
+    },
+    {
+      "id": "a908",
+      "title": "Update task",
+      "priorityLevel": "low",
+      "status": "ongoing"
+    },
+    {
+      "id": "372e",
+      "title": "Code in the evening",
+      "priorityLevel": "medium",
+      "status": "todo"
     }
   ]
 }
