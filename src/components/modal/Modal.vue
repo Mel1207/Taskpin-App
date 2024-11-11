@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed z-10 h-screen w-full bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="fixed z-10 h-screen w-full bg-black bg-opacity-50 flex items-center justify-center px-5">
     <div class="bg-white w-[600px] rounded-[20px] p-5">
       <div class="flex items-start justify-between mb-[45px]">
         <p class="text-lg font-bold">New task</p>
@@ -39,42 +39,13 @@
 </template>
 
 <script setup lang="ts">
+import { EditData } from '../../controllers/EditData'
+import { PostData } from '../../controllers/PostData'
 import store from '../../store'
 import ButtonSet from '../buttons/ButtonSet.vue'
 
-const editTask = async (task: {id: any; title: string, status: string, priorityLevel: string}) => {
-  try {
-    const response = await fetch(`http://localhost:3000/tasks/${task.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(task)
-    })
-    if(!response.ok) {
-      throw new Error('Failed to edit task')
-    }
-    const updatedTask = await response.json()
-    const index = store.state.tasks.findIndex((item: { id: any; }) => item.id === updatedTask.id)
-    if(index !== -1) {
-      store.state.tasks[index] = updatedTask
-    }
-  } catch {
-    console.log('error')
-  }
-}
-
-const postTask = async (task: { title: string, status: string, priorityLevel: string}) => {
-  const response = await fetch('http://localhost:3000/tasks', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(task)
-  })
-  const createdTask = await response.json()
-  store.state.tasks.push(createdTask)
-}
+const { postTask } = PostData()
+const { editTask } = EditData()
 
 const handleSubmit = () => {
   if(!store.state.newTask.title) {

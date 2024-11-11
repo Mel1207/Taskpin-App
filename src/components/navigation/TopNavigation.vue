@@ -1,9 +1,10 @@
 <template>
-  <div class="h-[70px] w-full fixed left-0 pl-[280px] top-0 border-b flex items-center justify-between">
+  <div class="hidden md:flex h-[70px] w-full fixed left-0 pl-[280px] top-0 border-b items-center justify-between">
     <div class="w-full px-5 flex justify-between items-center">
       <div class="flex gap-[12px] items-center">
         <NavButtonIcon iconName="icon burger menu" :iconSrc="iconBurgerMenu"/>
-        <p class="font-semibold">Dashboard</p>
+        <p v-if="router.currentRoute.value.path === '/'" class="font-semibold">Taskboard</p>
+        <p v-else class="font-semibold">Task history</p>
       </div>
       <div class="flex gap-[15px] items-center">
         <NavButtonIcon iconName="icon notification" :iconSrc="iconNotification"/>
@@ -21,13 +22,12 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import NavButtonIcon from './NavButtonIcon.vue'
 import iconLogOut from '../../assets/icon-logout.svg'
 import iconNotification from '../../assets/icon-notification.svg'
 import iconBurgerMenu from '../../assets/icon-burger-menu.svg'
 
+const router = useRouter()
+
 </script>
-
-<style scoped>
-
-</style>

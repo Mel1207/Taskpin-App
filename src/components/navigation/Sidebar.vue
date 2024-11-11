@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[280px] h-screen fixed left-0 top-0 bg-[#141315]">
+  <div class="hidden md:block w-[280px] h-screen fixed left-0 top-0 bg-[#141315]">
     <div class="h-[70px] w-full flex items-center px-5 gap-2">
       <img src="../../assets/taskpin-logo.svg" alt="main logo">
       <p class="text-lg font-bold text-white">Taskpin.io</p>

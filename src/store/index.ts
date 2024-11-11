@@ -10,7 +10,8 @@ export default createStore({
       status: 'todo'
     },
     showModal: false,
-    isTyping: false
+    isTyping: false,
+    selectedTab: 1
   },
   mutations: {
     openModal(state: { showModal: boolean }) {
