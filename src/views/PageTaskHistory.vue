@@ -1,7 +1,7 @@
 <template>
-  <div class="pl-0 md:pl-[280px] pt-[70px]">
+  <div class="pl-0 md:pl-[280px] md:pt-[70px]">
     <div class="container">
-      <div class="flex justify-between items-center mt-[40px] mb-[30px]">
+      <div class="flex justify-between items-center mt-[25px] md:mt-[40px] mb-[30px]">
       <Greetings message="Good afternoon John ☀️" description="Here's your task history"/>
       </div>
       <TaskFilter />

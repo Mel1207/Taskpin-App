@@ -1,9 +1,9 @@
 <template>
-  <div class="fixed z-10 h-screen w-full bg-black bg-opacity-50 flex items-center justify-center px-5">
+  <div class="fixed z-20 h-screen w-full bg-black bg-opacity-50 flex items-center justify-center px-5">
     <div class="bg-white w-[600px] rounded-[20px] p-5">
       <div class="flex items-start justify-between mb-[45px]">
         <p class="text-lg font-bold">New task</p>
-        <img src="../../assets/icon-close.svg" alt="icon close" class="cursor-pointer" @click="$store.commit('closeModal')">
+        <img src="../../assets/icon-close.svg" alt="icon close" class="cursor-pointer" @click="handleCancel">
       </div>
       <div class="mb-[15px]">
         <span class="text-sm font-semibold block mb-2">Title</span>
@@ -27,7 +27,7 @@
       </div>
 
       <div class="flex justify-between items-center pt-[45px]">
-        <ButtonSet btn-title="Cancel" class-list="h-[40px] px-[15px] border rounded-lg text-sm"/>
+        <ButtonSet btn-title="Cancel" class-list="h-[40px] px-[15px] border rounded-lg text-sm" @click="handleCancel"/>
         <div>
           <ButtonSet btn-title="save" class-list="h-[40px] px-[15px] border rounded-lg text-sm mr-5" @click="handleSave"/>
           <ButtonSet btn-title="Submit" class-list="h-[40px] px-[15px] rounded-lg bg-primary text-white hover:opacity-80 transition" @click="handleSubmit"/>
@@ -59,6 +59,11 @@ const handleSubmit = () => {
 
 const handleSave = () => {
   editTask(store.state.newTask)
+  store.commit('closeModal')
+}
+
+const handleCancel = () => {
+  store.state.newTask.title = ''
   store.commit('closeModal')
 }
 

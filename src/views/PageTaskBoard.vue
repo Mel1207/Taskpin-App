@@ -1,9 +1,8 @@
 <template>
-  <Modal v-if="$store.state.showModal"/>
   <!-- <ModalConfirm /> -->
-  <div class="pl-0 md:pl-[280px] pt-[70px]">
+  <div class="pl-0 md:pl-[280px] md:pt-[70px]">
     <div class="container">
-      <div class="flex justify-between items-center mt-[40px] mb-[30px]">
+      <div class="flex justify-between items-center mt-[25px] md:mt-[40px] mb-[30px]">
         <Greetings message="Welcome back John 👋" description="Lets track your task today"/>
         <MobileButtonSet has-icon class-list="h-[40px] md:hidden px-[15px] bg-primary text-white flex gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="handleAddTask"/>
         <ButtonSet btn-title="New task" has-icon class-list="hidden md:flex h-[40px] px-[15px] bg-primary text-white gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="handleAddTask"/>
@@ -109,7 +108,6 @@ import { GetData } from '../controllers/GetData'
 import { DeleteData } from '../controllers/DeleteData'
 // import ModalConfirm from '../components/modal/ModalConfirm.vue'
 import ButtonSet from '../components/buttons/ButtonSet.vue'
-import Modal from '../components/modal/Modal.vue'
 import TaskHeader from '../components/TaskHeader.vue'
 import Greetings from '../components/Greetings.vue'
 import MobileButtonSet from '../components/buttons/MobileButtonSet.vue'
