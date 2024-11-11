@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed z-10 h-screen w-full bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="fixed z-10 h-screen w-full bg-black bg-opacity-50 flex items-center justify-center px-5">
     <div class="bg-white w-[600px] rounded-[20px] p-5">
       <div class="flex items-start justify-between mb-[45px]">
         <p class="text-lg font-bold">New task</p>

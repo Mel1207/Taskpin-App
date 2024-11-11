@@ -1,18 +1,24 @@
 <template>
   <Modal v-if="$store.state.showModal"/>
   <!-- <ModalConfirm /> -->
-  <div class="pl-[280px] pt-[70px]">
+  <div class="pl-0 md:pl-[280px] pt-[70px]">
     <div class="container">
       <div class="flex justify-between items-center mt-[40px] mb-[30px]">
         <Greetings message="Welcome back John 👋" description="Lets track your task today"/>
-        <ButtonSet btn-title="New task" has-icon class-list="h-[40px] px-[15px] bg-primary text-white flex gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="handleAddTask"/>
+        <MobileButtonSet has-icon class-list="h-[40px] px-[15px] bg-primary text-white flex gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="handleAddTask"/>
+        <ButtonSet btn-title="New task" has-icon class-list="hidden md:flex h-[40px] px-[15px] bg-primary text-white gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="handleAddTask"/>
       </div>
       <div class="grid grid-cols-3 gap-5 mb-5">
         <TaskHeader task-header-name="Todo" :task-count="String(todoTasks.length)" theme-class="bg-cGreen"/>
         <TaskHeader task-header-name="On-going" :task-count="String(onGoingTasks.length)" theme-class="bg-cBlue"/>
         <TaskHeader task-header-name="Done" :task-count="String(doneTasks.length)" theme-class="bg-cBlack bg-opacity-5"/>
       </div>
-      <div class="grid grid-cols-3 gap-5 content">
+      <div class="hidden md:grid grid-cols-3 gap-5 mb-5">
+        <TaskHeader task-header-name="Todo" :task-count="String(todoTasks.length)" theme-class="bg-cGreen"/>
+        <TaskHeader task-header-name="On-going" :task-count="String(onGoingTasks.length)" theme-class="bg-cBlue"/>
+        <TaskHeader task-header-name="Done" :task-count="String(doneTasks.length)" theme-class="bg-cBlack bg-opacity-5"/>
+      </div>
+      <div class="grid grid-cols gap-5 content">
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
           <div v-for="item in todoTasks" :key="String(item.id)" class="border rounded-lg p-[15px] grid grid-cols-[1fr,22px] gap-[10px] items-start" @click.exact="handleEditTask(item)">
             <div>
@@ -65,8 +71,7 @@ import ButtonSet from '../components/buttons/ButtonSet.vue'
 import Modal from '../components/modal/Modal.vue'
 import TaskHeader from '../components/TaskHeader.vue'
 import Greetings from '../components/Greetings.vue'
-
-
+import MobileButtonSet from '../components/buttons/MobileButtonSet.vue'
 
 const { getTasks } = GetData()
 const { deleteTask } = DeleteData()

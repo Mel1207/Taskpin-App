@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="text-xl font-semibold mb-[3px]">{{ message }}</h1>
-    <p class="text-sm text-[#22222250]">{{ description }}</p>
+    <h1 class="text-[14px] md:text-xl font-semibold mb-[3px]">{{ message }}</h1>
+    <p class="text-xs md:text-sm text-[#22222250]">{{ description }}</p>
   </div>
 </template>
 

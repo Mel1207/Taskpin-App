@@ -1,11 +1,11 @@
 <template>
-  <div class="pl-[280px] pt-[70px]">
+  <div class="pl-0 md:pl-[280px] pt-[70px]">
     <div class="container">
       <div class="flex justify-between items-center mt-[40px] mb-[30px]">
       <Greetings message="Good afternoon John ☀️" description="Here's your task history"/>
       </div>
       <TaskFilter />
-      <div class="w-full rounded-[10px] border p-5 mt-5">
+      <div class="w-full rounded-[10px] border p-5 mt-5 overflow-y-scroll">
         <div class="bg-slate-50 rounded-[5px] w-full h-12 grid grid-cols-[200px,300px,1fr,1fr] gap-[10px] px-5 items-center text-[14px] font-medium">
           <p>Priority Level</p>
           <p>Title</p>

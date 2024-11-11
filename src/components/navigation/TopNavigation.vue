@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[70px] w-full fixed left-0 pl-[280px] top-0 border-b flex items-center justify-between">
+  <div class="hidden md:flex h-[70px] w-full fixed left-0 pl-[280px] top-0 border-b items-center justify-between">
     <div class="w-full px-5 flex justify-between items-center">
       <div class="flex gap-[12px] items-center">
         <NavButtonIcon iconName="icon burger menu" :iconSrc="iconBurgerMenu"/>
