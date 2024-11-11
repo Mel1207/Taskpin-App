@@ -1,5 +1,5 @@
 <template>
-  <div class="h-20 md:hidden w-full fixed bottom-0 left-0 z-10 bg-white px-[30px] flex items-center justify-between border-t">
+  <div class="h-20 md:hidden w-full fixed bottom-0 left-0 z-10 bg-white px-5 flex items-center justify-between border-t">
     <router-link to="/">
       <div class="rounded-lg p-[10px] flex items-center flex-col gap-[5px] text-cBlack">
         <img src="../../assets/icon-mobile-taskboard.svg" alt="icon taskboard">
