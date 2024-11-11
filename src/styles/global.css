@@ -27,13 +27,13 @@ body, input {
 
 /* PRIORITY CLASS */
 .low {
-  @apply text-[#17CF97] bg-[#17CF9715]
+  @apply text-[#17CF97] bg-[#17CF9770] md:bg-[#17CF9715]
 }
 
 .medium {
-  @apply text-[#171ECF] bg-[#171ECF15]
+  @apply text-[#171ECF] bg-[#171ECF70] md:bg-[#171ECF15]
 }
 
 .high {
-  @apply text-[#FF4B61] bg-[#FF4B6115]
+  @apply text-[#FF4B61] bg-[#FF4B6170] md:bg-[#FF4B6115]
 }
