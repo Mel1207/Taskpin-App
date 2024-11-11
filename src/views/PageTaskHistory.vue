@@ -12,33 +12,33 @@
           <p>Status</p>
           <p class="text-end">Actions</p>
         </div>
-        <div v-for="item in $store.state.tasks" :key="item.id" class="px-5 border-b grid grid-cols-[200px,300px,1fr,1fr] items-center h-12 w-full text-[14px] gap-[10px]">
-          <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">
-            {{ item.priorityLevel }} priority
-          </span>
-          <p>{{ item.title }}</p>
-          <p class="text-opacity-50 text-black">{{ item.status }}</p>
-          <div class="flex justify-end">
-            <ButtonSet btn-title="Delete" disabled class-list="py-[5px] rounded-[5px] bg-cRed text-white text-[12px] px-[10px]" />
-          </div>
-        </div>
+        <TableItem v-if="$store.state.selectedTab === 1" v-for="item in $store.state.tasks" :key="item.id" :task-item="item"/>
+        <TableItem v-if="$store.state.selectedTab === 2" v-for="item in lowTasks" :key="item.id" :task-item="item"/>
+        <TableItem v-if="$store.state.selectedTab === 3" v-for="item in mediumTasks" :key="item.id" :task-item="item"/>
+        <TableItem v-if="$store.state.selectedTab === 4" v-for="item in highTasks" :key="item.id" :task-item="item"/>
       </div>
     </div>
-   
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
+import store from '../store'
 import { GetData } from '../controllers/GetData'
-import ButtonSet from '../components/buttons/ButtonSet.vue'
 import Greetings from '../components/Greetings.vue'
 import TaskFilter from '../components/TaskFilter.vue'
+import TableItem from '../components/TableItem.vue'
 
 const { getTasks } = GetData()
 
 onMounted(() => {
   getTasks()
 })
+
+const lowTasks = computed(() => store.state.tasks.filter((item: { priorityLevel: string; }) => item.priorityLevel === 'low'))
+
+const mediumTasks = computed(() => store.state.tasks.filter((item: { priorityLevel: string; }) => item.priorityLevel === 'medium'))
+
+const highTasks = computed(() => store.state.tasks.filter((item: { priorityLevel: string; }) => item.priorityLevel === 'high'))
 
 </script>
