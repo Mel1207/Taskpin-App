@@ -56,42 +56,26 @@
 </template>
 
 <script setup lang="ts">
-import ButtonSet from '../components/buttons/ButtonSet.vue'
-import Modal from '../components/modal/Modal.vue'
-// import ModalConfirm from '../components/modal/ModalConfirm.vue'
 import { computed, onMounted } from 'vue'
 import store from '../store'
-import TaskHeader from '../components/TaskHeader.vue';
-import Greetings from '../components/Greetings.vue';
+import { GetData } from '../controllers/GetData'
+import { DeleteData } from '../controllers/DeleteData'
+// import ModalConfirm from '../components/modal/ModalConfirm.vue'
+import ButtonSet from '../components/buttons/ButtonSet.vue'
+import Modal from '../components/modal/Modal.vue'
+import TaskHeader from '../components/TaskHeader.vue'
+import Greetings from '../components/Greetings.vue'
 
 
-const getTasks = async () => {
-  await fetch('http://localhost:3000/tasks')
-    .then(res => res.json())
-    .then(data => store.state.tasks = data)
-    console.log(store.state.tasks)
-}
+
+const { getTasks } = GetData()
+const { deleteTask } = DeleteData()
 
 const todoTasks = computed(() => store.state.tasks.filter((item: { status: string; }) => item.status === 'todo'))
 
 const onGoingTasks = computed(() => store.state.tasks.filter((item: { status: string; }) => item.status === 'ongoing'))
 
 const doneTasks = computed(() => store.state.tasks.filter((item: { status: string; }) => item.status === 'done'))
-
-const deleteTask = async (id: String) => {
-  try {
-    const response = await fetch(`http://localhost:3000/tasks/${id}`, {
-      method: 'DELETE',
-    })
-    if (!response.ok) {
-      throw new Error('Failed to delete task')
-    }
-    // Update the tasks array by removing the deleted task
-    store.state.tasks = store.state.tasks.filter((task: { id: String; }) => task.id !== id)
-  } catch (err) {
-    console.error(err)
-  }
-}
 
 const handleAddTask = () => {
   store.state.newTask.title = ''

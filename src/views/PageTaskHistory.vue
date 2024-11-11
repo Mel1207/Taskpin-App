@@ -19,7 +19,7 @@
           <p>{{ item.title }}</p>
           <p class="text-opacity-50 text-black">{{ item.status }}</p>
           <div class="flex justify-end">
-            <ButtonSet btn-title="Delete" class-list="py-[5px] rounded-[5px] bg-cRed text-white text-[12px] px-[10px]"/>
+            <ButtonSet btn-title="Delete" disabled class-list="py-[5px] rounded-[5px] bg-cRed text-white text-[12px] px-[10px]" />
           </div>
         </div>
       </div>
@@ -29,9 +29,16 @@
 </template>
 
 <script setup lang="ts">
-import ButtonSet from '../components/buttons/ButtonSet.vue';
+import { onMounted } from 'vue'
+import { GetData } from '../controllers/GetData'
+import ButtonSet from '../components/buttons/ButtonSet.vue'
 import Greetings from '../components/Greetings.vue'
 import TaskFilter from '../components/TaskFilter.vue'
 
+const { getTasks } = GetData()
+
+onMounted(() => {
+  getTasks()
+})
 
 </script>
