@@ -1,16 +1,13 @@
 <template>
   <div class="fixed z-10 h-screen w-full bg-black bg-opacity-50 flex items-center justify-center">
     <div class="bg-white w-[600px] rounded-[20px] p-5">
-      <p>{{ $store.state.newTask.title }}</p>
-      <p>{{ $store.state.newTask.priorityLevel }}</p>
-      <p>{{ $store.state.newTask.status }}</p>
       <div class="flex items-start justify-between mb-[45px]">
         <p class="text-lg font-bold">New task</p>
         <img src="../../assets/icon-close.svg" alt="icon close" class="cursor-pointer" @click="$store.commit('closeModal')">
       </div>
       <div class="mb-[15px]">
         <span class="text-sm font-semibold block mb-2">Title</span>
-        <input type="text" placeholder="enter title" class="h-[45px] w-full rounded-lg border px-[15px] placeholder:text-sm placeholder:font-light" v-model="$store.state.newTask.title">
+        <input type="text" placeholder="enter title" class="h-[45px] w-full rounded-lg border px-[15px] placeholder:text-sm placeholder:font-light" v-model="$store.state.newTask.title" @keydown="$store.state.isTyping = false" required :class="store.state.isTyping ? 'border-cRed' : ''">
       </div>
       <div class="mb-[15px]">
         <label for="priorityLevel" class="text-sm font-semibold block mb-2">Priority level</label>
@@ -31,7 +28,11 @@
 
       <div class="flex justify-between items-center pt-[45px]">
         <ButtonSet btn-title="Cancel" class-list="h-[40px] px-[15px] border rounded-lg text-sm"/>
-        <ButtonSet btn-title="Submit" class-list="h-[40px] px-[15px] rounded-lg bg-primary text-white hover:opacity-80 transition" @click="handleSubmit"/>
+        <div>
+          <ButtonSet btn-title="save" class-list="h-[40px] px-[15px] border rounded-lg text-sm mr-5" @click="handleSave"/>
+          <ButtonSet btn-title="Submit" class-list="h-[40px] px-[15px] rounded-lg bg-primary text-white hover:opacity-80 transition" @click="handleSubmit"/>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -40,6 +41,28 @@
 <script setup lang="ts">
 import store from '../../store'
 import ButtonSet from '../buttons/ButtonSet.vue'
+
+const editTask = async (task: {id: any; title: string, status: string, priorityLevel: string}) => {
+  try {
+    const response = await fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+    if(!response.ok) {
+      throw new Error('Failed to edit task')
+    }
+    const updatedTask = await response.json()
+    const index = store.state.tasks.findIndex((item: { id: any; }) => item.id === updatedTask.id)
+    if(index !== -1) {
+      store.state.tasks[index] = updatedTask
+    }
+  } catch {
+    console.log('error')
+  }
+}
 
 const postTask = async (task: { title: string, status: string, priorityLevel: string}) => {
   const response = await fetch('http://localhost:3000/tasks', {
@@ -54,9 +77,18 @@ const postTask = async (task: { title: string, status: string, priorityLevel: st
 }
 
 const handleSubmit = () => {
+  if(!store.state.newTask.title) {
+    store.state.isTyping = true
+    return
+  }
   postTask(store.state.newTask)
   store.commit('closeModal')
   store.state.newTask.title = ''
+}
+
+const handleSave = () => {
+  editTask(store.state.newTask)
+  store.commit('closeModal')
 }
 
 </script>

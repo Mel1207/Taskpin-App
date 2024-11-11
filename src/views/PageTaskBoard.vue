@@ -4,57 +4,48 @@
   <div class="pl-[280px] pt-[70px]">
     <div class="container">
       <div class="flex justify-between items-center mt-[40px] mb-[30px]">
-        <div>
-          <h1 class="text-xl font-semibold mb-[3px]">Welcome back John 👋</h1>
-          <p class="text-sm text-[#22222250]">Lets track your task today</p>
-        </div>
-        <ButtonSet btn-title="New task" has-icon class-list="h-[40px] px-[15px] bg-primary text-white flex gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="$store.commit('openModal')"/>
+        <Greetings message="Welcome back John 👋" description="Lets track your task today"/>
+        <ButtonSet btn-title="New task" has-icon class-list="h-[40px] px-[15px] bg-primary text-white flex gap-[10px] items-center rounded-lg hover:opacity-80 transition" @click="handleAddTask"/>
       </div>
       <div class="grid grid-cols-3 gap-5 mb-5">
-        <div class="rounded-lg bg-green-100 px-5 flex items-center h-[50px]">
-          <p class="text-sm font-semibold">Todo</p>
-        </div>
-        <div class="rounded-lg bg-blue-100 px-5 flex items-center h-[50px]">
-          <p class="text-sm font-semibold">On-going</p>
-        </div>
-        <div class="rounded-lg bg-gray-100 px-5 flex items-center h-[50px]">
-          <p class="text-sm font-semibold">Done</p>
-        </div>
+        <TaskHeader task-header-name="Todo" :task-count="String(todoTasks.length)" theme-class="bg-cGreen"/>
+        <TaskHeader task-header-name="On-going" :task-count="String(onGoingTasks.length)" theme-class="bg-cBlue"/>
+        <TaskHeader task-header-name="Done" :task-count="String(doneTasks.length)" theme-class="bg-cBlack bg-opacity-5"/>
       </div>
       <div class="grid grid-cols-3 gap-5 content">
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
-          <div v-for="item in todoTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+          <div v-for="item in todoTasks" :key="String(item.id)" class="border rounded-lg p-[15px] grid grid-cols-[1fr,22px] gap-[10px] items-start" @click.exact="handleEditTask(item)">
             <div>
-              <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
+              <p class="text-sm font-semibold mb-[10px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">{{ item.priorityLevel }} priority</span>
             </div>
-            <button>
+            <button @click.stop="deleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
         </div>
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
-          <div v-for="item in onGoingTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+          <div v-for="item in onGoingTasks" :key="String(item.id)" class="border rounded-lg p-[15px] grid grid-cols-[1fr,22px] gap-[10px] items-start" @click.exact="handleEditTask(item)">
             <div>
-              <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
+              <p class="text-sm font-semibold mb-[10px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button>
+            <button @click.stop="deleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
         </div>
         <div class="border rounded-[15px] p-3 flex flex-col gap-[10px]">
-          <div v-for="item in doneTasks" :key="String(item.id)" class="border rounded-lg p-[15px] flex justify-between items-start" @click="deleteTask(item.id)">
+          <div v-for="item in doneTasks" :key="String(item.id)" class="border rounded-lg p-[15px] grid grid-cols-[1fr,22px] gap-[10px] items-start" @click.exact="handleEditTask(item)">
             <div>
-              <p class="text-sm font-semibold mb-[5px]">{{ item.title }}</p>
+              <p class="text-sm font-semibold mb-[10px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel" >
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button>
+            <button @click.stop="deleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -70,6 +61,8 @@ import Modal from '../components/modal/Modal.vue'
 // import ModalConfirm from '../components/modal/ModalConfirm.vue'
 import { computed, onMounted } from 'vue'
 import store from '../store'
+import TaskHeader from '../components/TaskHeader.vue';
+import Greetings from '../components/Greetings.vue';
 
 
 const getTasks = async () => {
@@ -100,9 +93,19 @@ const deleteTask = async (id: String) => {
   }
 }
 
+const handleAddTask = () => {
+  store.state.newTask.title = ''
+  store.commit('openModal')
+}
+
+const handleEditTask = (task: object) => {
+  console.log(todoTasks.value.length)
+  store.commit('openModal')
+  store.state.newTask = task
+}
+
 onMounted(() => {
   getTasks()
-  // console.log('component is running')
 })
 
 </script>
