@@ -5,7 +5,7 @@
         {{ taskItem.priorityLevel }} priority
       </span>
       <div class="flex md:hidden items-center gap-[10px]">
-        <div class="h-[15px] w-[15px] rounded-full" :class="taskItem.priorityLevel"></div>
+        <div class="h-[15px] w-[15px] rounded-full" :class="`${taskItem.priorityLevel}-dot`"></div>
         <div>
           <p class="text-xs mb-[5px]">{{ taskItem.title }}</p>
           <p class="text-xs text-opacity-50 text-black">{{ taskItem.status }}</p>

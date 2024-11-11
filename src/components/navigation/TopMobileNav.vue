@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between px-5 pt-5">
+  <div class="flex md:hidden items-center justify-between px-5 pt-5">
     <router-link to="/">
       <img src="../../assets/taskpin-logo.svg" alt="main logo">
     </router-link>
