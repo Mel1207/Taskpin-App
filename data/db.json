@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "id": "e9e2",
-      "title": "submit test 1",
-      "status": "ongoing",
-      "priorityLevel": "low"
-    },
-    {
       "id": "39ef",
       "title": "task from vuex",
       "priorityLevel": "low",
@@ -16,7 +10,7 @@
       "id": "f86a",
       "title": "create landing page test",
       "priorityLevel": "high",
-      "status": "ongoing"
+      "status": "done"
     },
     {
       "id": "f166",

@@ -5,6 +5,7 @@ import TopNavigation from './components/navigation/TopNavigation.vue'
 import MobileMenu from './components/navigation/MobileMenu.vue'
 import TopMobileNav from './components/navigation/TopMobileNav.vue'
 import Modal from './components/modal/Modal.vue'
+import LandingPageNav from './components/navigation/LandingPageNav.vue'
 
 const router = useRouter()
 
@@ -16,5 +17,6 @@ const router = useRouter()
   <TopNavigation v-if="router.currentRoute.value.path !== '/landing-page'"/>
   <Sidebar v-if="router.currentRoute.value.path !== '/landing-page'"/>
   <MobileMenu v-if="router.currentRoute.value.path !== '/landing-page'"/>
+  <LandingPageNav v-if="router.currentRoute.value.path === '/landing-page'"/>
   <RouterView />
 </template>

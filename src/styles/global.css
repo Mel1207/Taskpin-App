@@ -49,3 +49,11 @@ body, input {
 .high-dot {
   @apply bg-[#FF4B6150]
 }
+
+/* LANDING PAGE */
+.hero {
+  background: url('../assets/hero-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
