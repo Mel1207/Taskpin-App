@@ -27,13 +27,33 @@ body, input {
 
 /* PRIORITY CLASS */
 .low {
-  @apply text-[#17CF97] bg-[#17CF9715]
+  @apply text-[#17CF97] bg-[#17CF9715] 
+}
+
+.low-dot {
+  @apply bg-[#17CF9750]
 }
 
 .medium {
   @apply text-[#171ECF] bg-[#171ECF15]
 }
 
+.medium-dot {
+  @apply bg-[#171ECF50]
+}
+
 .high {
   @apply text-[#FF4B61] bg-[#FF4B6115]
+}
+
+.high-dot {
+  @apply bg-[#FF4B6150]
+}
+
+/* LANDING PAGE */
+.hero {
+  background: url('../assets/hero-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

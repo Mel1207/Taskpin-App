@@ -11,7 +11,8 @@ export default {
         cBlack: "#121212",
         cGreen: "#17CF97",
         cBlue: "#171ECF",
-        cRed: "#FF4B61"
+        cRed: "#FF4B61",
+        cWhite10: "#F9F9F9"
       }
     },
   },

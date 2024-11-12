@@ -12,7 +12,8 @@ export default createStore({
     showModal: false,
     isTyping: false,
     selectedTab: 1,
-    taskTab: 1
+    taskTab: 1,
+    activeAccordion: 1
   },
   mutations: {
     openModal(state: { showModal: boolean }) {
