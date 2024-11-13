@@ -24,7 +24,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import ButtonSet from '../buttons/ButtonSet.vue'
-import NavButtonIcon from './NavButtonIcon.vue'
 import iconBurgerMenuWhite from '../../assets/icon-burger-menu-white.svg'
 import iconBurgerMenu from '../../assets/icon-burger-menu.svg'
 
