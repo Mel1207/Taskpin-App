@@ -13,7 +13,7 @@
         <ButtonSet btn-title="Register" :class-list="scrollY >= 80 ? 'text-cBlack text-sm w-[100px] h-[40px] rounded-lg border border-cBlack' : 'w-[100px] h-[40px] rounded-lg text-sm border border-white text-white text-sm'"/>
         <ButtonSet btn-title="Login" class-list="w-[100px] h-[40px] rounded-lg bg-cBlack text-white text-sm"/>
       </div>
-      <button class="h-9 w-9 border rounded-lg flex items-center justify-center" :class="scrollY >= 80 ? 'border' : 'border-white'">
+      <button class="h-9 w-9 border rounded-lg flex md:hidden items-center justify-center" :class="scrollY >= 80 ? 'border' : 'border-white'">
         <img :src="iconBurgerMenu" alt="icon menu" v-if="scrollY >= 80">
         <img :src="iconBurgerMenuWhite" alt="icon menu" v-else>
       </button>
