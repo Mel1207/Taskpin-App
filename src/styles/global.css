@@ -57,3 +57,17 @@ body, input {
   background-size: cover;
   background-position: center;
 }
+
+/* CUSTOM OPTIONS INPUT */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+}
+
+.arrow-down {
+  position: absolute;
+  right: 12px;
+  top: 42px;
+}

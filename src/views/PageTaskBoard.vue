@@ -119,13 +119,15 @@ const onGoingTasks = computed(() => store.state.tasks.filter((item: { status: st
 const doneTasks = computed(() => store.state.tasks.filter((item: { status: string; }) => item.status === 'done'))
 
 const handleAddTask = () => {
-  store.state.newTask.title = ''
   store.commit('openModal')
+  store.state.newTask.title = ''
+  store.state.newTask.priorityLevel = 'low'
+  store.state.newTask.status = 'todo'
 }
 
 const handleEditTask = (task: object) => {
-  console.log(todoTasks.value.length)
   store.commit('openModal')
+  store.state.isEditing = true
   store.state.newTask = task
 }
 

@@ -9,6 +9,7 @@ export default createStore({
       priorityLevel: 'low',
       status: 'todo'
     },
+    isEditing: false,
     showModal: false,
     isTyping: false,
     selectedTab: 1,
