@@ -1,57 +1,9 @@
 {
   "tasks": [
     {
-      "id": "39ef",
-      "title": "task from vuex",
-      "priorityLevel": "low",
-      "status": "done"
-    },
-    {
-      "id": "f86a",
-      "title": "create landing page test",
+      "id": "3edf",
+      "title": "test 4",
       "priorityLevel": "high",
-      "status": "done"
-    },
-    {
-      "id": "f166",
-      "title": "zcvzx",
-      "priorityLevel": "medium",
-      "status": "done"
-    },
-    {
-      "id": "f166",
-      "title": "zcvzx",
-      "priorityLevel": "medium",
-      "status": "todo"
-    },
-    {
-      "id": "09c2",
-      "title": "fix ticket #4120",
-      "priorityLevel": "high",
-      "status": "todo"
-    },
-    {
-      "id": "a592",
-      "title": "Fix responsive for mobile",
-      "priorityLevel": "high",
-      "status": "ongoing"
-    },
-    {
-      "id": "a592",
-      "title": "Fix responsive for mobile",
-      "priorityLevel": "medium",
-      "status": "ongoing"
-    },
-    {
-      "id": "e9e2",
-      "title": "submit test 1",
-      "status": "done",
-      "priorityLevel": "low"
-    },
-    {
-      "id": "f166",
-      "title": "fix table responsive",
-      "priorityLevel": "medium",
       "status": "todo"
     }
   ]
