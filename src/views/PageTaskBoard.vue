@@ -105,15 +105,12 @@
 import { computed, onMounted } from 'vue'
 import store from '../store'
 import { GetData } from '../controllers/GetData'
-import { DeleteData } from '../controllers/DeleteData'
-// import ModalConfirm from '../components/modal/ModalConfirm.vue'
 import ButtonSet from '../components/buttons/ButtonSet.vue'
 import TaskHeader from '../components/TaskHeader.vue'
 import Greetings from '../components/Greetings.vue'
 import MobileButtonSet from '../components/buttons/MobileButtonSet.vue'
 
 const { getTasks } = GetData()
-const { deleteTask } = DeleteData()
 
 const todoTasks = computed(() => store.state.tasks.filter((item: { status: string; }) => item.status === 'todo'))
 
