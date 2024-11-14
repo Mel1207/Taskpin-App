@@ -9,11 +9,14 @@ export default createStore({
       priorityLevel: 'low',
       status: 'todo'
     },
+    isEditing: false,
     showModal: false,
     isTyping: false,
     selectedTab: 1,
     taskTab: 1,
-    activeAccordion: 1
+    activeAccordion: 1,
+    modalConfirm: false,
+    selectedItem: ''
   },
   mutations: {
     openModal(state: { showModal: boolean }) {
@@ -21,6 +24,12 @@ export default createStore({
     },
     closeModal(state: { showModal: boolean }) {
       state.showModal = false
+    },
+    openConfirmModal(state: { modalConfirm: boolean }) {
+      state.modalConfirm = true
+    },
+    closeConfirmModal(state: { modalConfirm: boolean }) {
+      state.modalConfirm = false
     }
   },
   actions: {

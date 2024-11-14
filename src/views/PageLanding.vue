@@ -27,19 +27,19 @@
   <section class="py-20 md:py-[100px] bg-cWhite10">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-[30px] mb-[30px]">
-        <div class="rounded-[30px] text-center bg-cGreen bg-opacity-10">
+        <div class="rounded-[30px] px-5 md:px-0 text-center bg-cGreen bg-opacity-10">
           <p class="text-center mt-[50px]">Stay organized and productive by tracking <br> tasks, deadlines, and priorities</p>
           <img src="../assets/iph-1.png" alt="iphone 1" class="mt-[-70px] mx-auto">
         </div>
-        <div class="rounded-[30px] text-center bg-cRed bg-opacity-10">
+        <div class="rounded-[30px] px-5 md:px-0  text-center bg-cRed bg-opacity-10">
           <p class="text-center mt-[50px]">Boost daily achievements with streamlined <br> task management for better focus.</p>
           <img src="../assets/iph-2.png" alt="iphone 1" class="mt-[-70px] mx-auto">
         </div>
       </div>
-      <div class="h-[450px] rounded-[30px] grid grid-cols md:grid-cols-2 items-center px-10 md:px-[60px] bg-cBlue bg-opacity-10 gap-[50px]">
+      <div class="h-auto md:h-[450px] py-10 md:py-0 rounded-[30px] grid grid-cols md:grid-cols-2 items-center px-10 md:px-[60px] bg-cBlue bg-opacity-10 gap-[50px]">
         <div>
           <div class="text-xs text-cBlue py-[5px] px-[10px] rounded-full border border-cBlue mb-[15px] w-max">Featured app</div>
-          <h3 class="text-[25px] font-bold mb-[15px]">Manage your task easily <br> and focus on your goal</h3>
+          <h3 class="text-[25px] font-bold mb-[15px]">Manage your task easily <br class="hidden md:block"> and focus on your goal</h3>
           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>
           <div class="flex gap-[10px] mt-[35px]">
             <ButtonSet btn-title="Get started" class-list="px-[15px] h-[45px] rounded-lg bg-cBlack text-white text-sm"/>
@@ -158,9 +158,9 @@
           <div class="text-xs text-white border border-white py-[5px] px-[10px] rounded-full mb-[15px] w-max">Downloads</div>
           <h3 class="text-[25px] font-bold text-white mb-[15px]">Download our mobile app</h3>
           <p class="text-white mb-[45px]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that </p>
-          <div class="flex gap-5">
-            <ButtonSet btn-title="Go to download" class-list="bg-cBlack text-white h-[40px] rounded-lg text-sm w-[155px]" />
-            <ButtonSet btn-title="Learn more" class-list=" text-white border border-white h-[40px] rounded-lg text-sm w-[155px]" />
+          <div class="flex gap-3 md:gap-5 flex-col md:flex-row">
+            <ButtonSet btn-title="Go to download" class-list="bg-cBlack text-white h-[40px] rounded-lg text-sm w-full md:w-[155px]" />
+            <ButtonSet btn-title="Learn more" class-list=" text-white border border-white h-[40px] rounded-lg text-sm w-full md:w-[155px]" />
           </div>
         </div>
         <img src="../assets/img-banner.png" alt="Banner" class="hidden md:block">

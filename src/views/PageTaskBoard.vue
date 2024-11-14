@@ -26,7 +26,7 @@
               <p class="text-sm font-semibold mb-[10px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">{{ item.priorityLevel }} priority</span>
             </div>
-            <button @click.stop="deleteTask(item.id)">
+            <button @click.stop="handleDeleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -39,7 +39,7 @@
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button @click.stop="deleteTask(item.id)">
+            <button @click.stop="handleDeleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -52,7 +52,7 @@
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button @click.stop="deleteTask(item.id)">
+            <button @click.stop="handleDeleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -65,7 +65,7 @@
               <p class="text-sm font-semibold mb-[10px]">{{ item.title }}</p>
               <span class="block text-xs py-[5px] px-2 rounded-full w-max" :class="item.priorityLevel">{{ item.priorityLevel }} priority</span>
             </div>
-            <button @click.stop="deleteTask(item.id)">
+            <button @click.stop="handleDeleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -78,7 +78,7 @@
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button @click.stop="deleteTask(item.id)">
+            <button @click.stop="handleDeleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -91,7 +91,7 @@
                 {{ item.priorityLevel }} priority
               </span>
             </div>
-            <button @click.stop="deleteTask(item.id)">
+            <button @click.stop="handleDeleteTask(item.id)">
               <img src="../assets/icon-delete.svg" alt="icon delete">
             </button>
           </div>
@@ -105,15 +105,12 @@
 import { computed, onMounted } from 'vue'
 import store from '../store'
 import { GetData } from '../controllers/GetData'
-import { DeleteData } from '../controllers/DeleteData'
-// import ModalConfirm from '../components/modal/ModalConfirm.vue'
 import ButtonSet from '../components/buttons/ButtonSet.vue'
 import TaskHeader from '../components/TaskHeader.vue'
 import Greetings from '../components/Greetings.vue'
 import MobileButtonSet from '../components/buttons/MobileButtonSet.vue'
 
 const { getTasks } = GetData()
-const { deleteTask } = DeleteData()
 
 const todoTasks = computed(() => store.state.tasks.filter((item: { status: string; }) => item.status === 'todo'))
 
@@ -122,14 +119,21 @@ const onGoingTasks = computed(() => store.state.tasks.filter((item: { status: st
 const doneTasks = computed(() => store.state.tasks.filter((item: { status: string; }) => item.status === 'done'))
 
 const handleAddTask = () => {
-  store.state.newTask.title = ''
   store.commit('openModal')
+  store.state.newTask.title = ''
+  store.state.newTask.priorityLevel = 'low'
+  store.state.newTask.status = 'todo'
 }
 
 const handleEditTask = (task: object) => {
-  console.log(todoTasks.value.length)
   store.commit('openModal')
+  store.state.isEditing = true
   store.state.newTask = task
+}
+
+const handleDeleteTask = (id: string) => {
+  store.state.selectedItem = id
+  store.commit('openConfirmModal')
 }
 
 onMounted(() => {
