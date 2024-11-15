@@ -1,7 +1,7 @@
 <template>
   <div class="h-[890px] w-full hero bg-fixed bg-cover overflow-hidden">
     <div class="container">
-      <h1 class="text-center text-white text-3xl md:text-[40px] font-bold pt-[150px] mb-[10px]">Effortlessly organize and track tasks to <br class="hidden md:block"> boost your productivity</h1>
+      <h1 class="text-center text-white text-3xl md:text-[40px] font-bold leading-normal pt-[150px] mb-[10px]">Effortlessly organize and track tasks to <br class="hidden md:block"> boost your productivity</h1>
       <p class="text-white text-center mb-[30px] leading-7">A simple yet powerful task management app to help you organize, prioritize, and <br class="hidden md:block"> complete tasks efficiently, keeping your goals within reach.</p>
       <div class="flex gap-5 justify-center">
         <router-link to="/">
@@ -28,11 +28,11 @@
     <div class="container">
       <div class="grid md:grid-cols-2 gap-[30px] mb-[30px]">
         <div class="rounded-[30px] px-5 md:px-0 text-center bg-cGreen bg-opacity-10">
-          <p class="text-center mt-[50px]">Stay organized and productive by tracking <br> tasks, deadlines, and priorities</p>
+          <p class="text-center mt-[50px]">Stay organized and productive by tracking <br class="hidden md:block"> tasks, deadlines, and priorities</p>
           <img src="../assets/iph-1.png" alt="iphone 1" class="mt-[-70px] mx-auto">
         </div>
         <div class="rounded-[30px] px-5 md:px-0  text-center bg-cRed bg-opacity-10">
-          <p class="text-center mt-[50px]">Boost daily achievements with streamlined <br> task management for better focus.</p>
+          <p class="text-center mt-[50px]">Boost daily achievements with streamlined <br class="hidden md:block"> task management for better focus.</p>
           <img src="../assets/iph-2.png" alt="iphone 1" class="mt-[-70px] mx-auto">
         </div>
       </div>
@@ -153,7 +153,7 @@
   </section>
   <div class="section relative z-10">
     <div class="container">
-      <div class="bg-cGreen rounded-[30px] h-[450px] px-10 md:px-20 grid grid-cols-1 md:grid-cols-2 items-center">
+      <div class="bg-cGreen rounded-[30px] h-auto py-10 md:h-[450px] px-10 md:px-20 grid grid-cols-1 md:grid-cols-2 items-center">
         <div class="max-w-[442px]">
           <div class="text-xs text-white border border-white py-[5px] px-[10px] rounded-full mb-[15px] w-max">Downloads</div>
           <h3 class="text-[25px] font-bold text-white mb-[15px]">Download our mobile app</h3>

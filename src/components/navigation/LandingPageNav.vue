@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed top-0 left-0 w-full h-[70px]  flex items-center" :class="scrollY >= 80 ? 'bg-white text-cBlack' : 'text-white'"> 
+  <div class="fixed z-50 top-0 left-0 w-full h-[70px]  flex items-center" :class="scrollY >= 80 ? 'bg-white text-cBlack' : 'text-white'"> 
     <div class="container flex items-center justify-between">
       <a href="!#" class="flex items-center gap-[10px] text-lg font-bold">
         <img src="../../assets/taskpin-logo.svg" alt="main logo" v-if="scrollY >= 80">
