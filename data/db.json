@@ -38,12 +38,6 @@
     },
     {
       "id": "6576",
-      "title": "Clean my pc",
-      "priorityLevel": "medium",
-      "status": "done"
-    },
-    {
-      "id": "6576",
       "title": "fix ticket #9129",
       "priorityLevel": "low",
       "status": "ongoing"
