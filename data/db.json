@@ -1,40 +1,16 @@
 {
   "tasks": [
     {
-      "id": "5ee9",
-      "title": "Fix modal issue",
-      "priorityLevel": "low",
-      "status": "done"
-    },
-    {
       "id": "4cac",
       "title": "fix ticket #91283",
       "priorityLevel": "high",
-      "status": "ongoing"
+      "status": "done"
     },
     {
       "id": "d47d",
       "title": "fix responsive for nav",
       "priorityLevel": "high",
       "status": "ongoing"
-    },
-    {
-      "id": "29e6",
-      "title": "Walk the dog",
-      "priorityLevel": "low",
-      "status": "done"
-    },
-    {
-      "id": "29e6",
-      "title": "Code in the morning",
-      "priorityLevel": "medium",
-      "status": "todo"
-    },
-    {
-      "id": "5ee9",
-      "title": "Fix modal issue",
-      "priorityLevel": "low",
-      "status": "todo"
     },
     {
       "id": "6576",
@@ -49,8 +25,20 @@
       "status": "todo"
     },
     {
-      "id": "e7e6",
+      "id": "77b6",
       "title": "Go to market",
+      "priorityLevel": "low",
+      "status": "todo"
+    },
+    {
+      "id": "29e6",
+      "title": "Code in the morning",
+      "priorityLevel": "medium",
+      "status": "done"
+    },
+    {
+      "id": "74fb",
+      "title": "fix responsive",
       "priorityLevel": "low",
       "status": "todo"
     }
